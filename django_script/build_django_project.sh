@@ -60,3 +60,5 @@ python manage.py migrate
 for file in $(curl -s https://api.github.com/repos/RAGREON/bashScripts/contents/django_script/python_scripts | grep -o '"name": *"[^"]*"' | sed 's/"name": *"\([^"]*\)"/\1/'); do
     add_file "$file"
 done
+
+code django_project
