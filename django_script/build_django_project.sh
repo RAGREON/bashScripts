@@ -61,4 +61,3 @@ for file in $(curl -s https://api.github.com/repos/RAGREON/bashScripts/contents/
     add_file "$file"
 done
 
-code ../
