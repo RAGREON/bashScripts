@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#!/bin/bash
+
+path=$(echo "$1" | sed 's/\\/\//g' | sed 's/^"//;s/"$//')
+extension=$2
+filename=$3
+filenameWithoutExt=$4
+
+cd "$path"
+
+clear
+
+case $extension in
+    "c" | "cpp")
+        if g++ $filename -o $filenameWithoutExt; then
+            eval "./$filenameWithoutExt"
+            eval "rm $filenameWithoutExt"
+        fi
+    ;;
+    "py")
+        eval "python $filename"
+    ;;
+    *)
+        echo "not a valid file"
+    ;;
+esac

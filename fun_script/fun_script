@@ -1,16 +1,43 @@
 #!/bin/bash
 
+# clones into the image repository
+
 git clone https://github.com/RAGREON/images.git
 cd ./images
 
+# installs pillow for opening the image and opencv-python for capturing the image frames
+
 pip install pillow opencv-python
+
+# grabs script from the repository 
 
 curl -s https://raw.githubusercontent.com/RAGREON/bashScripts/main/fun_script/python_scripts/capture.py > script.py
 
+# executs the script
+
 python ./script.py
+
+# staging for commit
+# adding the captured frame
 
 git add .
 
+# commit message
+
 git commit -m "added image"
 
+# pushing the captured frame into the main branch
+# will be pushed as a pull request
+
 git push origin main
+
+# removes everything inside the image directory
+
+for image in ./*; do
+    rm $image
+done
+
+# removes the image directory
+
+cd ..
+rmdir ./images
